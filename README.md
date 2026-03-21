@@ -14,7 +14,15 @@
 - ✅ **自动装配** - 引入依赖即自动生效
 - ✅ **IDE 友好** - 支持配置提示（通过 `spring-boot-configuration-processor`）
 - ✅ **可配置** - 支持所有 SLS Appender 参数
-- ✅ **Spring Boot 3.x 兼容** - 支持 Java 17+
+- ✅ **版本兼容** - 支持 Spring Boot 3.x & 4.x，Java 17+
+
+## 版本兼容
+
+| Starter 版本 | Spring Boot | JDK | Jakarta EE |
+|-------------|-------------|-----|------------|
+| 1.x | 3.0.0 - 4.x | 17+ | 10 / 11 |
+
+> **注意**: Spring Boot 3.x 使用 Jakarta EE 10，Spring Boot 4.x 使用 Jakarta EE 11。本 Starter 对两者均兼容。
 
 ## 快速开始
 
@@ -129,7 +137,9 @@ export ALIYUN_SLS_ENABLED=false
 1. **日志格式**: 默认使用 `logging.pattern.console` 配置的格式
 2. **环境隔离**: 建议通过 `topic` 区分不同环境的日志
 3. **敏感信息**: 推荐使用环境变量存储 AccessKey
-4. **Spring Boot 版本**: 支持 Spring Boot 3.x，Java 17+
+4. **版本要求**: 
+   - JDK 17+ (推荐 JDK 21 以获得虚拟线程支持)
+   - Spring Boot 3.0.0+ 或 4.x
 
 ## 与传统方式对比
 

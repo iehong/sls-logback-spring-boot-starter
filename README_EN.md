@@ -14,7 +14,15 @@ A Spring Boot Starter for Aliyun SLS (Log Service) Logback Appender with zero XM
 - ✅ **Auto-configuration** - Works automatically when dependency is added
 - ✅ **IDE Friendly** - Configuration hints supported via `spring-boot-configuration-processor`
 - ✅ **Fully Configurable** - Supports all SLS Appender parameters
-- ✅ **Spring Boot 3.x Compatible** - Java 17+
+- ✅ **Version Compatible** - Supports Spring Boot 3.x & 4.x, Java 17+
+
+## Version Compatibility
+
+| Starter Version | Spring Boot | JDK | Jakarta EE |
+|-----------------|-------------|-----|------------|
+| 1.x | 3.0.0 - 4.x | 17+ | 10 / 11 |
+
+> **Note**: Spring Boot 3.x uses Jakarta EE 10, Spring Boot 4.x uses Jakarta EE 11. This Starter is compatible with both.
 
 ## Quick Start
 
@@ -113,7 +121,9 @@ export ALIYUN_SLS_ENABLED=false
 1. **Log Pattern**: Uses `logging.pattern.console` by default
 2. **Environment Isolation**: Use different `topic` for different environments
 3. **Sensitive Data**: Store AccessKey in environment variables
-4. **Spring Boot Version**: Supports Spring Boot 3.x, Java 17+
+4. **Version Requirements**:
+   - JDK 17+ (JDK 21 recommended for virtual threads support)
+   - Spring Boot 3.0.0+ or 4.x
 
 ## License
 
