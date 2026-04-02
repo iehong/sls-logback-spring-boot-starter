@@ -97,6 +97,13 @@
       <artifactId>lombok</artifactId>
       <optional>true</optional>
     </dependency>
+
+    <!-- 覆盖传递依赖的低版本 protobuf，兼容 Java 17+ -->
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>4.34.1</version>
+    </dependency>
   </dependencies>
 
   <build>
