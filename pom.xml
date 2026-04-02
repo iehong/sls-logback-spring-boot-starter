@@ -6,7 +6,7 @@
 
   <groupId>io.github.iehong</groupId>
   <artifactId>sls-logback-spring-boot-starter</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>jar</packaging>
 
   <name>Aliyun SLS Logback Spring Boot Starter</name>
