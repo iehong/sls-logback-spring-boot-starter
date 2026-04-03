@@ -38,18 +38,21 @@
   <properties>
     <!-- Java 17+ required for Spring Boot 3.x/4.x -->
     <java.version>17</java.version>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.release>17</maven.compiler.release>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
     
-    <!-- 
-      Spring Boot compatibility: 3.0.0+ and 4.x
-      Default version for compilation. Users can override via their own dependencyManagement.
-      For Spring Boot 4.x projects, set this property or let your project's BOM manage versions.
-    -->
+    <!-- Spring Boot -->
     <spring-boot.version>3.4.0</spring-boot.version>
     
-    <aliyun-sls-appender.version>0.1.18</aliyun-sls-appender.version>
+    <!-- Dependencies -->
+    <aliyun-sls-appender.version>0.1.31</aliyun-sls-appender.version>
+    <lombok.version>1.18.40</lombok.version>
+    
+    <!-- Maven Plugins -->
+    <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+    <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
+    <maven-javadoc-plugin.version>3.6.0</maven-javadoc-plugin.version>
   </properties>
 
   <dependencyManagement>
@@ -95,14 +98,8 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
       <optional>true</optional>
-    </dependency>
-
-    <!-- 覆盖传递依赖的低版本 protobuf，兼容 Java 17+ -->
-    <dependency>
-      <groupId>com.google.protobuf</groupId>
-      <artifactId>protobuf-java</artifactId>
-      <version>3.25.6</version>
     </dependency>
   </dependencies>
 
@@ -111,17 +108,25 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.11.0</version>
+        <version>${maven-compiler-plugin.version}</version>
         <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
+          <release>${maven.compiler.release}</release>
           <parameters>true</parameters>
+          <encoding>UTF-8</encoding>
+          <fork>true</fork>
+          <annotationProcessorPaths>
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>${lombok.version}</version>
+            </path>
+          </annotationProcessorPaths>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>3.3.0</version>
+        <version>${maven-source-plugin.version}</version>
         <executions>
           <execution>
             <id>attach-sources</id>
@@ -134,7 +139,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.6.0</version>
+        <version>${maven-javadoc-plugin.version}</version>
         <executions>
           <execution>
             <id>attach-javadocs</id>

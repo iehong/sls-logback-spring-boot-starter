@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    target-branch: "main"
+    reviewers:
+      - "iehong"
+    assignees:
+      - "iehong"
+    allow:
+      - dependency-name: "com.aliyun.openservices:aliyun-log-logback-appender"
+    open-pull-requests-limit: 1
